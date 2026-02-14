@@ -1,0 +1,16 @@
+.gallery {
+  margin-top: 30px;
+}
+
+.gallery h2 {
+  margin-bottom: 15px;
+}
+
+.gallery-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 15px;
+  display: block;
+  border-radius: 8px;
+}
