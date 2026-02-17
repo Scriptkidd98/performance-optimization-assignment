@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 function Home() {
   const [count, setCount] = useState(0);
-  const [number, setNumber] = useState('');
+  const [number, setNumber] = useState(''); //this is a part that was added
 
   const handleClick = () => {
     setCount(count + 1);
