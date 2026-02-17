@@ -1,0 +1,11 @@
+git clone https://github.com/Scriptkidd98/performance-optimization-assignment.git
+
+//solve the assignment
+
+git checkout -b <your-name>
+
+git add .
+
+git commit -m "<your message>"
+
+git push origin isaac
