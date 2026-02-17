@@ -10,7 +10,7 @@ function Home() {
   };
 
   const handleInputChange = (e) => {
-    setNumber(e.target.value);
+    setNumber(e.target.value); 
   };
 
   const handleReset = () => {
