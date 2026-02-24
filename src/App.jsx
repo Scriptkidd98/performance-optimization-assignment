@@ -1,24 +1,34 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import Gallery from './pages/Gallery';
-import './App.css';
-import './styles/Home.css';
-import './styles/Gallery.css';
+import { useState } from 'react';
 
 function App() {
+  const [isAccordionVisible, setIsAccordionVisible] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsAccordionVisible(!isAccordionVisible);
+  }
+
   return (
-    <Router>
-      <div className="app">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/gallery" className="nav-link">Gallery</Link>
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/gallery" element={<Gallery />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <div>
+      <button onClick={() => toggleAccordion()}>Personal Information</button>
+      {isAccordionVisible && (
+        <form>
+          <div>
+            <input type="text" id="email" placeholder="Enter your email address" />
+          </div>
+
+          <div>
+            <input type="text" id="name" placeholder="Enter your name" />
+          </div>
+
+          <div>
+            <input type="checkbox" id="consent" />
+            <label htmlFor="consent">I agree to the terms and conditions guiding the creation of my account with Fake Company. To view the terms and conditions, please <a href="/terms">click here</a>.</label>
+          </div>
+          
+          <button>Save</button>
+        </form>
+      )}
+    </div>
   );
 }
 
