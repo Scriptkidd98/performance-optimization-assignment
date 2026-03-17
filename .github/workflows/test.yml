@@ -15,6 +15,9 @@ jobs:
       - name: Run unit tests
         run: echo "Running unit tests..." # Replace with actual test command
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
