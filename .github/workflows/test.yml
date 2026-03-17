@@ -3,7 +3,7 @@ name: Test Workflow
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   test:
@@ -11,3 +11,17 @@ jobs:
     steps:
       - name: Run echo job
         run: echo "This job is being run by ${{ github.actor }} on the ${{ github.ref }} branch in the ${{ github.repository }} repo"
+
+      - name: Run unit tests
+        run: echo "Running unit tests..." # Replace with actual test command
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
