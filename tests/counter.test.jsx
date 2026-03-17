@@ -8,7 +8,7 @@ import Accordion from '../src/components/Accordion';
 
 describe('increment function', () => {
     afterEach(() => {
-        cleanup();
+        cleanup(); 
     });
 
     test('should return a value incremented by 1', () => {
