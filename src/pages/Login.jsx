@@ -1,32 +1,43 @@
+import { useState } from 'react';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { useNavigate } from 'react-router-dom';
+import { authenticateWithGoogle } from '../hooks/authWithGoogle';
+
 const Login = () => {
+  const navigate = useNavigate();
+
+  const[email, setEmail] = useState('');
+  const[password, setPassword] = useState('');
+
   const login = (e) => {
     e.preventDefault();
-    const username = e.target.username.value;
-    const password = e.target.password.value;
-
-    // Here you can add your authentication logic, such as making an API call to verify the user's credentials.
-    // For demonstration purposes, we'll just log the username and password to the console.
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    // After successful login, you can redirect the user to the homepage or profile page.
-    // For example, you can use the useNavigate hook from react-router-dom to navigate programmatically.
-
-    if(username === 'admin' && password === 'password') {
-      window.location.href = '/homepage'; // Redirect to homepage after successful login
-    }
+    
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log("User logged in: ", user);
+      navigate('/user/dashboard'); // Redirect to dashboard after successful login
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Login error: ", errorCode, errorMessage);
+      alert("Login failed: " + errorMessage); // Show an alert on login failure
+    });
   }
   return (
     <div>
         <form onSubmit={login}>
             <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required/>
+            <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
             <br />
             <label htmlFor="password">Password:</label>
-            <input type="text" id="password" name="password" required/>
+            <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             <br />
             <button type="submit">Login</button>
         </form>
+        <button onClick={() => authenticateWithGoogle(navigate)}>Login with Google</button>
     </div>
   )
 }

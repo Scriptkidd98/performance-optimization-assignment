@@ -1,0 +1,4 @@
+user/{userId}
+
+posts/{userId}/post
+

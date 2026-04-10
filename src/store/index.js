@@ -1,5 +1,7 @@
 import store from "./store";
 import { storeUserData, updateUserData } from "./actions";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
 
 export function testStore() {
@@ -8,12 +10,22 @@ export function testStore() {
     });
 }
 
-export function getUserData() {
-    const userData = {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        image: 'https://example.com/john-doe.jpg'
-    }
+export function getUserData(userId) {
+    const userData = firebase.firestore().collection('users').doc(userId).get()
+    .then((doc) => {
+        if (doc.exists) {
+            console.log('User data:', doc.data());
+            return doc.data();
+        } else {
+            console.log('No such document!');
+            return null;
+        }
+    })
+    .catch((error) => {
+        console.error('Error getting user data:', error);
+        return null;
+    });
+    
     store.dispatch(storeUserData(userData));
 }
 

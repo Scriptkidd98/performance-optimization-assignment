@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Cameras",
+        "content": "Explore our wide range of cameras, from DSLRs to mirrorless and compact options. Capture your moments with precision and clarity. Photography. Cameras. Lenses. Accessories. Picture. Memory. Zoom. Focus. Aperture. Shutter Speed. ISO. Tripod. Flash. Viewfinder. Sensor. Megapixels. Image Stabilization. RAW Format. Video Recording.",
+        "url": "/cameras"
+    },
+    {
+        "title": "Cars",
+        "content": "Discover our collection of cars, from sleek sedans to powerful SUVs. Experience the thrill of driving with our top-notch vehicles. Cars. Sedans. SUVs. Sports Cars. Electric Vehicles. Hybrid Cars. Luxury Cars. Performance. Safety. Fuel Efficiency. Technology. Comfort. Design. Handling. Acceleration. Braking. Infotainment. Connectivity. Maintenance.",
+        "url": "/cars"
+    },
+    {
+        "title": "Laptops",
+        "content": "Find the perfect laptop for work, gaming, or everyday use. Our laptops offer powerful performance and sleek designs. Laptops. Notebooks. Ultrabooks. Gaming Laptops. Business Laptops. MacBooks. Windows Laptops. Performance. Portability. Battery Life. Display. Graphics. Storage. RAM. Processor. Connectivity. Keyboard. Touchscreen.",
+        "url": "/laptops"
+    }
+]
